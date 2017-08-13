@@ -1,0 +1,45 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _css = require('antd-mobile/lib/flex/style/css');
+
+var _flex = require('antd-mobile/lib/flex');
+
+var _flex2 = _interopRequireDefault(_flex);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _common = require('common');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (_ref) {
+  var icon = _ref.icon,
+      name = _ref.name,
+      remark = _ref.remark,
+      onClick = _ref.onClick;
+  return _react2.default.createElement(
+    _flex2.default,
+    { onClick: onClick },
+    _react2.default.createElement('img', { src: icon, alt: '', style: { width: '1rem', marginRight: '.3rem' } }),
+    _react2.default.createElement(
+      'span',
+      null,
+      _react2.default.createElement(
+        'span',
+        { className: 'block font-xx', style: { marginBottom: (0, _common.rem)(_common.indent) } },
+        name
+      ),
+      _react2.default.createElement(
+        'span',
+        { className: 'font-ss gray-1' },
+        remark
+      )
+    )
+  );
+};

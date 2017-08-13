@@ -1,0 +1,118 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _css = require('antd-mobile/lib/button/style/css');
+
+var _button = require('antd-mobile/lib/button');
+
+var _button2 = _interopRequireDefault(_button);
+
+var _merge = require('ramda/src/merge');
+
+var _merge2 = _interopRequireDefault(_merge);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _common = require('common');
+
+var _line = require('./line');
+
+var _line2 = _interopRequireDefault(_line);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var appIntroList = {
+  xiaoying: {
+    title: '小赢卡贷',
+    remark: '6万3秒极速放款，放款送手环',
+    intros: [{
+      title: '小赢卡贷是什么',
+      content: ['小赢卡贷是一款帮助年轻用户维护信用，快速还清信用卡账单，', '恢复信用额度的小额借贷产品，由小赢普惠荣誉出品。']
+    }, {
+      title: '小赢卡贷特点',
+      content: ['独具授信快、审批快、放款快的特点,堪称信用卡充电宝，还款方式灵活。', '高额度：2000-60000，满足你的一切所需。', '低利率：月利率最低可至0.34%，维护信用更轻松。', '期限灵活：3-12个月等多种还款周期，灵活选择']
+    }],
+    activities: ['通过通联钱包注册成为小赢卡贷用户，申请并成功放款5000元，即可免费领取通联手环一只。', '在您满足免费领取的条件后，通联钱包客服将致电用户确认手环配送地址，手环将于30个工作日内统一进行配送。']
+  },
+  huanbei: {}
+};
+
+exports.default = function (_ref) {
+  var params = _ref.params;
+  var type = params.type;
+  var _appIntroList$type = appIntroList[type],
+      title = _appIntroList$type.title,
+      remark = _appIntroList$type.remark,
+      intros = _appIntroList$type.intros,
+      activities = _appIntroList$type.activities;
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { style: (0, _merge2.default)(_common.bottomShadow, { padding: '.32rem' }), className: 'bg-white' },
+      _react2.default.createElement(
+        'div',
+        { className: 'font-m blod pdv2' },
+        title
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'gray-1 font-ss pdv2' },
+        remark
+      ),
+      intros.map(function (_ref2) {
+        var introTitle = _ref2.title,
+            content = _ref2.content;
+        return _react2.default.createElement(
+          'div',
+          { key: Math.random() },
+          _react2.default.createElement(
+            'div',
+            { className: 'font-m gray-1 pdv2' },
+            introTitle
+          ),
+          _react2.default.createElement(
+            'ul',
+            null,
+            content.map(function (o) {
+              return _react2.default.createElement(
+                'li',
+                { key: Math.random(), className: 'font-ss pdv2 gray-1' },
+                o
+              );
+            })
+          )
+        );
+      }),
+      _react2.default.createElement(_line2.default, null),
+      _react2.default.createElement(
+        'div',
+        { className: 'font-m pdv2' },
+        '\u6D3B\u52A8\u5185\u5BB9\uFF1A'
+      ),
+      activities.map(function (activity) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'font-ss gray-1 pdv2', key: Math.random() },
+          activity
+        );
+      })
+    ),
+    _react2.default.createElement(
+      'div',
+      { style: { height: '1.5rem', padding: '.32rem .64rem' } },
+      _react2.default.createElement(
+        _button2.default,
+        { type: 'primary' },
+        '\u7ACB\u5373\u7533\u8BF7'
+      )
+    )
+  );
+};

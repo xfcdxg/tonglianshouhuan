@@ -1,0 +1,181 @@
+@import './common/lib';
+@import './common/antd';
+
+a {
+  @include color($blue);
+  text-decoration: none;
+  &:hover {
+    @include color($blue-light);
+    text-decoration: underline !important;
+  }
+}
+// 页面默认样式 START
+* {
+  border-radius: 0 !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+  @include color(#fff !important)
+}
+body,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+img,
+legend,
+li,
+ol,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset,
+img {
+    border: none;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+input, textarea {
+    outline: none !important;
+    border: none;
+}
+
+body,
+html {
+  @include wh(100%, 100%);
+  @include bgc($white);
+  margin: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-user-select: none;
+  text-rendering: opximizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  // font-family: PingFangSC-Regular, verdana, Arial !important;
+}
+// 页面默认样式 END
+
+$displayArray: block inline inline-block;
+
+@each $d in $displayArray {
+  .#{ $d } {
+    display: $d
+  }
+}
+
+@for $i from 1 through 100 {
+  .wp#{ $i } {
+    @include w(#{ $i + '%' })
+  }
+  .hp#{ $i } {
+    @include h(#{ $i + '%' })
+  }
+}
+
+$positionArray: fixed absolute relative;
+
+@each $p in $positionArray {
+  .pos-#{ $p } {
+    position: $p
+  }
+}
+
+.fright {
+  float: right
+}
+.fleft {
+  float: left
+}
+.blod {
+  font-weight: 700 !important;
+}
+.brand-color {
+  @include color($brand)
+}
+.disable {
+  @include color($disable)
+}
+.gray-1 {
+  @include color($gray-1)
+}
+.gray-2 {
+  @include color($gray-2)
+}
+.gray-3 {
+  @include color($gray-3)
+}
+.gray-4 {
+  @include color($gray-4)
+}
+.gray-5 {
+  @include color($gray-5)
+}
+.orange {
+  @include color($orange)
+}
+
+@each $key, $val in (xx:.36, x: .30, m: .28, s: .26, ss: .20) {
+  .font-#{ $key } {
+    @include rem(#{ $val });
+  }
+}
+.tmr {
+  @include margin(24px, right)
+}
+.white {
+  @include color($white)
+}
+.tcenter {
+  text-align: center;
+}
+
+.bg-white {
+  @include bgc($white !important);
+}
+.pdh {
+  @include padding(.16rem, left);
+  @include padding(.16rem, right);
+}
+.pdv {
+  @include padding(.16rem, top);
+  @include padding(.16rem, bottom);
+}
+.pdv2 {
+  @include padding(.08rem, top);
+  @include padding(.08rem, bottom);
+}
+.touch-layer {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

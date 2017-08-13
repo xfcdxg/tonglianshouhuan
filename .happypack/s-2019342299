@@ -1,0 +1,60 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _css = require('antd-mobile/lib/flex/style/css');
+
+var _flex = require('antd-mobile/lib/flex');
+
+var _flex2 = _interopRequireDefault(_flex);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _common = require('common');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (_ref) {
+  var cardImg = _ref.cardImg,
+      title = _ref.title,
+      contentList = _ref.contentList,
+      tagImg = _ref.tagImg,
+      onClick = _ref.onClick;
+
+  var flexProps = {
+    justify: 'between',
+    align: 'start',
+    className: 'font-x pdv',
+    onClick: onClick
+  };
+  return _react2.default.createElement(
+    _flex2.default,
+    flexProps,
+    _react2.default.createElement('img', { src: cardImg, alt: '', style: { width: '2rem' } }),
+    _react2.default.createElement(
+      'span',
+      { className: 'wp55' },
+      _react2.default.createElement(
+        'span',
+        { className: 'blod font-x block', style: { marginBottom: (0, _common.rem)(_common.indent) } },
+        title
+      ),
+      _react2.default.createElement(
+        'ul',
+        { className: 'font-s gray-1' },
+        contentList.map(function (word) {
+          return _react2.default.createElement(
+            'li',
+            { key: word },
+            word
+          );
+        })
+      )
+    ),
+    _react2.default.createElement('img', { src: tagImg, alt: '', style: { width: '.5rem' } })
+  );
+};

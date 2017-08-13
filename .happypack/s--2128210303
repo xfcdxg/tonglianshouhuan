@@ -1,0 +1,166 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _css = require('antd-mobile/lib/flex/style/css');
+
+var _flex = require('antd-mobile/lib/flex');
+
+var _flex2 = _interopRequireDefault(_flex);
+
+var _css2 = require('antd-mobile/lib/white-space/style/css');
+
+var _whiteSpace = require('antd-mobile/lib/white-space');
+
+var _whiteSpace2 = _interopRequireDefault(_whiteSpace);
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _common = require('common');
+
+var _reactRouter = require('react-router');
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _banner = require('images/banner.png');
+
+var _banner2 = _interopRequireDefault(_banner);
+
+var _footer = require('images/footer.png');
+
+var _footer2 = _interopRequireDefault(_footer);
+
+var _card = require('images/card.png');
+
+var _card2 = _interopRequireDefault(_card);
+
+var _jiaotong = require('images/jiaotong.png');
+
+var _jiaotong2 = _interopRequireDefault(_jiaotong);
+
+var _shanghang = require('images/shanghang.png');
+
+var _shanghang2 = _interopRequireDefault(_shanghang);
+
+var _shoubiao = require('images/shoubiao.png');
+
+var _shoubiao2 = _interopRequireDefault(_shoubiao);
+
+var _iconXiaoying = require('images/icon-xiaoying.png');
+
+var _iconXiaoying2 = _interopRequireDefault(_iconXiaoying);
+
+var _iconHuanbei = require('images/icon-huanbei.png');
+
+var _iconHuanbei2 = _interopRequireDefault(_iconHuanbei);
+
+var _homeCardActivity = require('./home-card-activity');
+
+var _homeCardActivity2 = _interopRequireDefault(_homeCardActivity);
+
+var _homeApp = require('./home-app');
+
+var _homeApp2 = _interopRequireDefault(_homeApp);
+
+var _homeBlock = require('./home-block');
+
+var _homeBlock2 = _interopRequireDefault(_homeBlock);
+
+var _line = require('./line');
+
+var _line2 = _interopRequireDefault(_line);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var cardInfoList = [{
+  cardImg: _jiaotong2.default,
+  tagImg: _card2.default,
+  title: '交通银行标准银联金卡',
+  onClick: function onClick() {
+    return console.log('card info 1');
+  },
+  contentList: ['新户办卡缤纷好礼三选一', '免息还款最长达56天', '每周五加油乐享5%优惠']
+}, {
+  cardImg: _shanghang2.default,
+  tagImg: _card2.default,
+  title: '上海银行VISA双币种金卡',
+  onClick: function onClick() {
+    return console.log('card info 2');
+  },
+  contentList: ['申请上海银行信用卡多好礼等你拿', '商务双肩包免费领取']
+}];
+
+var blockTitleList = [{
+  icon: _card2.default,
+  name: '办理信用卡',
+  remark: '【 免费拿手环 】',
+  className: 'brand-color'
+}, {
+  icon: _shoubiao2.default,
+  name: '代还信用卡',
+  remark: '【 还能领手环 】',
+  className: 'orange'
+}];
+
+var appList = [{
+  icon: _iconXiaoying2.default,
+  name: '小赢卡贷',
+  remark: '最高可贷5万元',
+  onClick: function onClick() {
+    return _reactRouter.hashHistory.push('/app/xiaoying');
+  }
+}, {
+  icon: _iconHuanbei2.default,
+  name: '还呗',
+  remark: '现在代还利率58折',
+  onClick: function onClick() {
+    return _reactRouter.hashHistory.push('/app/huanbei');
+  }
+}];
+
+exports.default = function () {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'header',
+      { style: _common.bottomShadow, className: 'bg-white pdh pdv' },
+      _react2.default.createElement('img', { src: _banner2.default, alt: '', width: '100%' })
+    ),
+    _react2.default.createElement(_whiteSpace2.default, { size: 'xs' }),
+    _react2.default.createElement(
+      _homeBlock2.default,
+      _extends({}, blockTitleList[0], { style: _common.bottomShadow }),
+      cardInfoList.map(function (cardInfo, idx) {
+        return _react2.default.createElement(
+          'div',
+          { key: cardInfo.title },
+          _react2.default.createElement(_homeCardActivity2.default, cardInfo),
+          idx === 0 && _react2.default.createElement(_line2.default, null)
+        );
+      })
+    ),
+    _react2.default.createElement(_whiteSpace2.default, { size: 'xs' }),
+    _react2.default.createElement(
+      _homeBlock2.default,
+      _extends({}, blockTitleList[1], { style: _common.bottomShadow }),
+      _react2.default.createElement(
+        _flex2.default,
+        { style: { padding: (0, _common.rem)(_common.indent * 2) }, justify: 'between' },
+        appList.map(function (app) {
+          return _react2.default.createElement(_homeApp2.default, _extends({ key: app.name }, app));
+        })
+      )
+    ),
+    _react2.default.createElement(_whiteSpace2.default, { size: 'xs' }),
+    _react2.default.createElement(
+      'footer',
+      null,
+      _react2.default.createElement('img', { src: _footer2.default, alt: '', width: '100%' })
+    )
+  );
+};

@@ -1,0 +1,13 @@
+@import 'lib';
+
+.am-whitespace {
+  &.am-whitespace-xs {
+    @include h(.16rem !important)
+  }
+}
+
+.am-wingblank {
+  &.am-wingblank-sm {
+    @include margin(0 .16rem !important)
+  }
+}
