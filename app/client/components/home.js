@@ -5,6 +5,8 @@ import React           from 'react'
 import banner          from 'images/banner.png'
 import footer          from 'images/footer.png'
 import card            from 'images/card.png'
+import tag1            from 'images/tag1.png'
+import tag2            from 'images/tag2.png'
 import jiaotong        from 'images/jiaotong.png'
 import shanghang       from 'images/shanghang.png'
 import shoubiao        from 'images/shoubiao.png'
@@ -18,9 +20,9 @@ import Line            from './line'
 const cardInfoList = [
   {
     cardImg:     jiaotong,
-    tagImg:      card,
+    tagImg:      tag1,
     title:       '交通银行标准银联金卡',
-    onClick:     () => console.log('card info 1'),
+    onClick:     () => (hashHistory.push('/card/jtbank')),
     contentList: [
       '新户办卡缤纷好礼三选一',
       '免息还款最长达56天',
@@ -29,9 +31,9 @@ const cardInfoList = [
   },
   {
     cardImg:     shanghang,
-    tagImg:      card,
+    tagImg:      tag2,
     title:       '上海银行VISA双币种金卡',
-    onClick:     () => console.log('card info 2'),
+    onClick:     () => (hashHistory.push('/card/shbank')),
     contentList: [
       '申请上海银行信用卡多好礼等你拿',
       '商务双肩包免费领取',
@@ -69,11 +71,13 @@ const appList = [
   },
 ]
 
+const toIntro = () => hashHistory.push('/intro')
+
 export default (
   () => (
-    <div>
+    <div className='touch-layer hp100'>
       <header style={ bottomShadow } className='bg-white pdh pdv' >
-        <img src={ banner } alt='' width='100%' />
+        <img src={ banner } alt='' width='100%' onClick={ toIntro } />
       </header>
       <WhiteSpace size='xs' />
       <Block { ...blockTitleList[0] } style={ bottomShadow } >
@@ -99,7 +103,7 @@ export default (
       </Block>
       <WhiteSpace size='xs' />
       <footer>
-        <img src={ footer } alt='' width='100%' />
+        <img src={ footer } alt='' width='100%' onClick={ toIntro } />
       </footer>
     </div>
   )
